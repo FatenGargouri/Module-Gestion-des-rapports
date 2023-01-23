@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="rapport_journalier" model="ir.actions.report">
+            <field name="name">rapport journalier</field>
+            <field name="model">rapport.journalier</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">employe_rapport.print_rapport_journalier_template</field>
+            <field name="report_file">employe_rapport.print_rapport_journalier_template</field>
+            <field name="binding_model_id" ref="model_rapport_journalier"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

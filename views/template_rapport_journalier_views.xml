@@ -1,0 +1,91 @@
+<odoo>
+    <data>
+        <template id="print_rapport_journalier_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <!--                    <img class="img" src="/employe_rapport/static/description/logo.png"/>-->
+                    <!--                    <p style="float:right">Adresse Tunis: Centre Commercial INTISAR II 1éme Etage - Bu n°27 - 2091- EL MANZAH 5<br/>-->
+                    <!--                        Adresse Sfax : Route Menzel Chacker km1- Imm NIHEL 1éme Etage Bu n°2 - 3020 - Sfax <br/>-->
+                    <!--                        Téléphone: (+216) 31 133 366/ (+216) 74 240 481 <br/>-->
+                    <!--                        Fax : (+216) 74 240 481 <br/></p>-->
+                    <h3 class="text-center" style="color:blue">Rapport journalier : Etat de présence</h3>
+                    <h3 class="text-center">De <span t-esc="form.get('start_date')"/> à <span t-esc="form.get('end_date')"/></h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <strong>Date </strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Nom de l'employé</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Arrivée</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Sortie</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Heures travaillés</strong>
+                                </th>
+                                <!--                                <th class="text-center">-->
+                                <!--                                    <strong>Retard</strong>-->
+                                <!--                                </th>-->
+                                <!--                                <th class="text-center">-->
+                                <!--                                    <strong>Depart anticipé</strong>-->
+                                <!--                                </th>-->
+                                <!--                                <th class="text-center">-->
+                                <!--                                    <strong>Heures supplémentaires</strong>-->
+                                <!--                                </th>-->
+                                <th class="text-center">
+                                    <strong>Etat</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="form.get('attendances')" t-as="l">
+                                <td class="text-right">
+                                    <span t-esc="l.get('date')"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="l.get('name')"/>
+                                </td>
+                                <td class="text-right">
+                                    <t t-if="len(l.get('entre'))>0">
+                                        <t t-foreach="l.get('entre')" t-as="e">
+                                            <span t-esc="e"/>
+                                            <br></br>
+                                        </t>
+                                    </t>
+                                </td>
+                                <td class="text-right">
+                                    <t t-if="len(l.get('sortie'))>0">
+                                        <t t-foreach="l.get('sortie')" t-as="s">
+                                            <span t-esc="s"/>
+                                            <br></br>
+                                        </t>
+                                    </t>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="l.get('worked_hours')"/>
+                                </td>
+                                <!--                                <td class="text-right">-->
+                                <!--                                    <span t-esc="l.get('late')"/>-->
+                                <!--                                </td>-->
+                                <!--                                <td class="text-right">-->
+                                <!--                                    <span t-esc="l.get('depart')"/>-->
+                                <!--                                </td>-->
+                                <!--                                <td class="text-right">-->
+                                <!--                                    <span t-esc="l.get('supp')"/>-->
+                                <!--                                </td>-->
+                                <td class="text-right">
+                                    <span t-esc="l.get('etat')"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

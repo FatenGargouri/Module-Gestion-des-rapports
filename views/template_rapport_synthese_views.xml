@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <template id="print_rapport_synthese_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <h3 class="text-center" style="color:blue">Rapports de synthèse</h3>
+                    <h3 class="text-center">De <span t-esc="form.get('start_date')"/> à <span t-esc="form.get('end_date')"/></h3>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <strong>Nom de l'employe</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Jours travaillés</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Jours absents</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Congés pris</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="form.get('attendances','conges')" t-as="l">
+                                <td class="text-right">
+                                    <span t-esc="l.get('name')"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="l.get('present')"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="l.get('absent')"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="l.get('conges_pris')"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

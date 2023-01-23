@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="rapport_synthese" model="ir.actions.report">
+            <field name="name">rapport synthese</field>
+            <field name="model">rapport.synthese</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">employe_rapport.print_rapport_synthese_template</field>
+            <field name="report_file">employe_rapport.print_rapport_synthese_template</field>
+            <field name="binding_model_id" ref="model_rapport_synthese"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

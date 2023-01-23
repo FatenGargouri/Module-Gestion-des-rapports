@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.rapport.journalier,access_rapport_journalier,employe_rapport.model_rapport_journalier,base.group_user,1,1,1,1
+access.rapport.synthese,access_rapport_synthese,employe_rapport.model_rapport_synthese,base.group_user,1,1,1,1

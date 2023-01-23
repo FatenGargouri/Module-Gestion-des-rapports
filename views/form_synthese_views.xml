@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="rapport_synthese_form">
+            <field name="name">rapport.synthese.form</field>
+            <field name="model">rapport.synthese</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <h1 style="color:green">Rapports de synthèses des employés</h1>
+                        <group>
+                            <field name="employee_id" widget="many2many_tags"/>
+                            <field name="from_date"/>
+                            <field name="to_date"/>
+                        </group>
+                        <footer>
+                            <button name="print_report" string="Afficher" type="object" class="btn-success"/>
+<!--                            <button string="Close" class="btn-danger" special="cancel"/>-->
+                        </footer>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_synthese_report">
+            <field name="name">Rapports syntheses</field>
+            <field name="res_model">rapport.synthese</field>
+            <field name="view_mode">form</field>
+        </record>
+
+    </data>
+</odoo>
